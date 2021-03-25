@@ -25,8 +25,8 @@ public class ReqresPageTest {
                 .when()
                 .get("/api/unknown")
                 .then()
-                .statusCode(200)
                 .log().body()
+                .statusCode(200)                
                 .body("support.text",
                         is("To keep ReqRes free, contributions towards server costs are appreciated!"));
     }
@@ -39,9 +39,9 @@ public class ReqresPageTest {
                 .body(data)
                 .when()
                 .post("/api/register")
-                .then()
-                .statusCode(200)
+                .then()              
                 .log().body()
+                .statusCode(200)
                 .body("token", is(notNullValue()));
     }
 
@@ -54,8 +54,8 @@ public class ReqresPageTest {
                 .when()
                 .post("/api/users")
                 .then()
-                .statusCode(201)
                 .log().body()
+                .statusCode(201)                
                 .body("id", is(notNullValue()));
     }
 
@@ -68,8 +68,8 @@ public class ReqresPageTest {
                 .when()
                 .put("/api/users/2")
                 .then()
-                .statusCode(200)
                 .log().body()
+                .statusCode(200)                
                 .body("updatedAt", is(notNullValue()));
     }
 
